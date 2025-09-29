@@ -1,2 +1,4 @@
 __pycache__/
 representations/
+.venv
+.DS_Store
