@@ -1,4 +1,4 @@
-    import networkx as nx
+import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
@@ -515,6 +515,8 @@ class GeomCA():
             if self.RE_2D_projection is not None:
                 RE_proj = self.RE_2D_projection.fit_transform(np.concatenate([R, E]))
             else:
+                # reducer = umap.UMAP()
+                # self.RE_2D_projection = reducer.fit(np.concatenate([R, E]))
                 self.RE_2D_projection = umap.UMAP(n_components=dim).fit((np.concatenate([R, E])))
                 RE_proj = self.RE_2D_projection.transform(np.concatenate([R, E]))
             R_proj = RE_proj[:len(R), :]
